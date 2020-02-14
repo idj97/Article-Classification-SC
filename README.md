@@ -1,1 +1,1 @@
-# Artice-Classification-SC
+# Article-Classification-SC
