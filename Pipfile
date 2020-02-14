@@ -8,6 +8,9 @@ pylint = "*"
 
 [packages]
 stemming = "*"
+sklearn = "*"
+pandas = "*"
+nltk = "*"
 
 [requires]
 python_version = "3.8"
