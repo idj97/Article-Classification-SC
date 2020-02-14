@@ -21,7 +21,7 @@ def main():
 
     data_input_path = 'original-data/'
     data_output_path = 'processed-data/'
-    for (dirpath, dirname, filenames) in walk(data_input_path):
+    for (dirpath, _, filenames) in walk(data_input_path):
         for file in filenames:
             input_path = dirpath + '/' + file
             output_path = data_output_path + dirpath.split('/')[1] + '-' + file
