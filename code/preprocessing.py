@@ -2,15 +2,27 @@ import re
 from os import walk
 from stemming.porter2 import stem
 
+
 def process_file(input_path, output_path, stopwords):
     with open(input_path, 'r') as infile, open(output_path, 'w+') as outfile:
         for line in infile:
-            line = line.replace('\n', '').lower()
-            line = re.sub(r'[^a-zA-Z0-9 ]+', '', line)
+            line = re.sub(r'[^a-zA-Z0-9 \n]+', '', line).lower()
             words = line.split(' ')
-            words = [stem(word) for word in words if word not in stopwords]
-            line = ' '.join(words)
-            outfile.write(line)
+            words = [process_word(word) for word in words if valid_word(word, stopwords)]
+            if words: 
+                line = ' '.join(words) + ' '
+                outfile.write(line)
+
+
+def process_word(word):
+    word = re.sub(r'[^a-zA-Z0-9]+', '', word)
+    word = word.lower()
+    return stem(word)
+
+
+def valid_word(word, stopwords):
+    return word not in stopwords and re.sub(r'[^a-zA-Z0-9]+', '', word) != '' 
+
 
 def main():
     stopwords=[]
@@ -27,6 +39,7 @@ def main():
             output_path = data_output_path + dirpath.split('/')[1] + '-' + file
             print('Finished processing %s' % input_path)
             process_file(input_path, output_path, stopwords)
+
 
 if __name__ == '__main__':
     main()
