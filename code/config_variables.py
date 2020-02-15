@@ -6,7 +6,7 @@ FEATURES_FILE_PATH = 'processed-data/features/'
 
 USE_LEMMATIZER = False
 
-TRAIN_RATIO = 0.05
+TRAIN_RATIO = 0.6
 TEST_RATIO = 0.3
 VALIDATION_RATIO = 0.1
 
@@ -18,5 +18,21 @@ LABELS = {
     "tech":           4
 }
 
-NUMBER_OF_FEATURES = 5
-BAG_OF_WORDS_TECHNIQUE = 'TL_IDF'
+INVERTED_LABELS = {
+    0: 'business',
+    1: 'entertainment',
+    2: 'politics',
+    3: 'sport',
+    4: 'tech'
+}
+
+NUMBER_OF_FEATURES = 1000
+BAG_OF_WORDS_TECHNIQUE = 'COUNT'
+#BAG_OF_WORDS_TECHNIQUE = 'FREQUENCY'
+#BAG_OF_WORDS_TECHNIQUE = 'TF_IDF'
+
+
+SVC_KERNEL = 'linear'
+KNN_N_NEIGHBOURS = 1
+RANDOM_FOREST_MAX_DEPTH = 5
+RANDOM_FOREST_RANDOM_STATE = 0
