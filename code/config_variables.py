@@ -4,7 +4,7 @@ STOPWORDS_PATH = 'processed-data/stop-words'
 SELECTED_FEATURES_NAMES_PATH = 'processed-data/feature-names/'
 FEATURES_FILE_PATH = 'processed-data/features/'
 
-USE_LEMMATIZER = False
+USE_LEMMATIZER = True
 
 TRAIN_RATIO = 0.6
 TEST_RATIO = 0.4
