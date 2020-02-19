@@ -11,6 +11,9 @@ stemming = "*"
 sklearn = "*"
 pandas = "*"
 nltk = "*"
+keras = "*"
+tensorflow = "*"
+python3-7 = "*"
 
 [requires]
 python_version = "3.8"
